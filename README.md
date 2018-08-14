@@ -1,10 +1,10 @@
-# bitcore-wallet
+# mangacore-wallet
 
-[![NPM Package](https://img.shields.io/npm/v/bitcore-wallet.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-wallet)
+[![NPM Package](https://img.shields.io/npm/v/mangacore-wallet.svg?style=flat-square)](https://www.npmjs.org/package/mangacore-wallet)
 
-A simple Command Line Interface Wallet using [Bitcore Wallet Service] (https://github.com/bitpay/bitcore-wallet-service) and its *official* client lib, bitcore-wallet-client] (https://github.com/bitpay/bitcore-wallet-client)
+A simple Command Line Interface Wallet using [Mangacore Wallet Service] (https://github.com/bitpay/mangacore-wallet-service) and its *official* client lib, mangacore-wallet-client] (https://github.com/bitpay/mangacore-wallet-client)
 
-This can be used to operate Bitcoin and Bitcoin Cash wallets.
+This can be used to operate Mangacoin and Mangacoin Cash wallets.
 
 
 # Quick Guide
@@ -13,7 +13,7 @@ This can be used to operate Bitcoin and Bitcoin Cash wallets.
 # Use -h or BWS_HOST to setup the BWS URL (defaults to localhost:3001)
 # 
 # Start a local BWS instance be doing:
-# git clone https://github.com/bitpay/bitcore-wallet-service.git bws
+# git clone https://github.com/bitpay/mangacore-wallet-service.git bws
 # cd bws; npm install; npm start
 
 cd bin
@@ -56,8 +56,8 @@ wallet send 1xxxxx 1000bit "1000 bits to mother"
 It is also possible to use Payment Protocol or BIP21. Examples:
 
 
-wallet send 'bitcoin:?r=https://bitpay.com/i/8rR7ydnLfQGqnRW1mqvXxJ'
-wallet send 'bitcoin:1N4zjmp1ojRborDiAu62MyCpaz9wjhPLM?amount=1'
+wallet send 'mangacoin:?r=https://bitpay.com/i/8rR7ydnLfQGqnRW1mqvXxJ'
+wallet send 'mangacoin:1N4zjmp1ojRborDiAu62MyCpaz9wjhPLM?amount=1'
 
 
 

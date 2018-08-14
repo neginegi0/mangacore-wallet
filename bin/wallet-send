@@ -3,10 +3,10 @@
 var program = require('commander');
 var utils = require('./cli-utils');
 var _ = require('lodash');
-var bwc = require('bitcore-wallet-client');
-var Bitcore_ = {
-  bch: bwc.BitcoreCash,
-  btc: bwc.Bitcore,
+var bwc = require('mangacore-wallet-client');
+var Mangacore_ = {
+  bch: bwc.MangacoreCash,
+  btc: bwc.Mangacore,
 };  
 
 program = utils.configureCommander(program);
@@ -14,7 +14,7 @@ program = utils.configureCommander(program);
 program
   .option('--fee <fee-per-kb>', 'Fee per kB to use. Default 100bits.')
   .usage('[options] <address> <amount> [note]')
-  .description('Create a proposal for sending bitcoins to a destination address.\n  The amount can be specified in bit, btc or sat (the default).');
+  .description('Create a proposal for sending mangacoins to a destination address.\n  The amount can be specified in bit, btc or sat (the default).');
 
 program.on('--help', function() {
   console.log('  Examples:');
@@ -85,23 +85,23 @@ utils.getClient(program, {
   mustExist: true
 }, function(client) {
   var coin = client.credentials.coin;
-  var bitcore = Bitcore_[coin];
+  var mangacore = Mangacore_[coin];
 
 
   var uri, addr, amount, note;
 
   // no backwards compat uri
-  if ((/^bitcoin(cash)?:\?r=[\w+]/).exec(arg1)) {
+  if ((/^mangacoin(cash)?:\?r=[\w+]/).exec(arg1)) {
     var coin2 = 'btc';
-    if (arg1.indexOf('bitcoincash') === 0) coin2 = 'bch';
+    if (arg1.indexOf('mangacoincash') === 0) coin2 = 'bch';
     if (coin != coin2) utils.die('Wallet / Payment Coin mismatch');
-    uri  = arg1.replace(/bitcoin(cash)?:\?r=/, '');
+    uri  = arg1.replace(/mangacoin(cash)?:\?r=/, '');
 
   } else {
 
     // BIP21
     try { 
-      var parsed = new bitcore.URI(arg1);
+      var parsed = new mangacore.URI(arg1);
 
       if (!parsed.r) {
 

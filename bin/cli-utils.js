@@ -2,7 +2,7 @@ var _ = require('lodash');
 var url = require('url');
 var read = require('read')
 var log = require('npmlog');
-var Client = require('bitcore-wallet-client');
+var Client = require('mangacore-wallet-client');
 var FileStorage = require('./filestorage');
 var sjcl = require('sjcl');
 
@@ -251,7 +251,7 @@ Utils.configureCommander = function(program) {
   program
     .version('0.0.1')
     .option('-f, --file <filename>', 'Wallet file')
-    .option('-h, --host <host>', 'Bitcore Wallet Service URL (eg: http://localhost:3001/copay/api')
+    .option('-h, --host <host>', 'Mangacore Wallet Service URL (eg: http://localhost:3001/copay/api')
     .option('-v, --verbose', 'be verbose')
 
   return program;

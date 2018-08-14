@@ -1,24 +1,24 @@
 {
-  "name": "bitcore-wallet",
-  "description": "A CLI Mutisig HD Bitcoin Wallet, demo for Bitcore Wallet Service",
+  "name": "mangacore-wallet",
+  "description": "A CLI Mutisig HD Mangacoin Wallet, demo for Mangacore Wallet Service",
   "author": "BitPay Inc",
   "version": "1.2.0",
   "keywords": [
-    "bitcoin",
+    "mangacoin",
     "copay",
     "multisig",
     "wallet"
   ],
   "repository": {
-    "url": "git@github.com:bitpay/bitcore-wallet.git",
+    "url": "git@github.com:bitpay/mangacore-wallet.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/bitpay/bitcore-wallet/issues"
+    "url": "https://github.com/bitpay/mangacore-wallet/issues"
   },
   "dependencies": {
     "async": "^2.5.0",
-    "bitcore-wallet-client": "^6.6.3",
+    "mangacore-wallet-client": "https://github.com/neginegi0/mangacore-wallet-client/archive/master.tar.gz",
     "commander": "^2.6.0",
     "lodash": "^3.3.1",
     "moment": "^2.9.0",
