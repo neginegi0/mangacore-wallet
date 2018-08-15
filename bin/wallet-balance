@@ -4,16 +4,12 @@ var program = require('commander');
 var utils = require('./cli-utils');
 program = utils.configureCommander(program);
 program
-  .option('-c, --coin <coin>', 'coin (btc/bch)')
   .parse(process.argv);
 
 var args = program.args;
 
 
 var opts = {};
-if (program.coin) { 
-    opts.coin = program.coin
-}
 
 utils.getClient(program, {
   mustExist: true

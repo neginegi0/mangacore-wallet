@@ -4,10 +4,7 @@ var program = require('commander');
 var utils = require('./cli-utils');
 var _ = require('lodash');
 var bwc = require('mangacore-wallet-client');
-var Mangacore_ = {
-  bch: bwc.MangacoreCash,
-  btc: bwc.Mangacore,
-};  
+var Mangacore = bwc.Mangacore;
 
 program = utils.configureCommander(program);
 
@@ -84,18 +81,14 @@ var uri;
 utils.getClient(program, {
   mustExist: true
 }, function(client) {
-  var coin = client.credentials.coin;
-  var mangacore = Mangacore_[coin];
+  var mangacore = Mangacore;
 
 
   var uri, addr, amount, note;
 
   // no backwards compat uri
-  if ((/^mangacoin(cash)?:\?r=[\w+]/).exec(arg1)) {
-    var coin2 = 'btc';
-    if (arg1.indexOf('mangacoincash') === 0) coin2 = 'bch';
-    if (coin != coin2) utils.die('Wallet / Payment Coin mismatch');
-    uri  = arg1.replace(/mangacoin(cash)?:\?r=/, '');
+  if ((/^mangacoin:\?r=[\w+]/).exec(arg1)) {
+    uri  = arg1.replace(/mangacoin:\?r=/, '');
 
   } else {
 
@@ -130,7 +123,7 @@ utils.getClient(program, {
         utils.die('Failed to verify payment protocol signatures');
       }
 
-      var amountStr = utils.renderAmount(paypro.amount, coin);
+      var amountStr = utils.renderAmount(paypro.amount);
       confirmDiag(amountStr, paypro.memo, function(confirmed) {
         if (!confirmed) utils.die('User canceled');
         send(client, paypro.toAddress, paypro.amount, program.fee, paypro.memo, uri);

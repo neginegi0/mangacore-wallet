@@ -258,34 +258,13 @@ Utils.configureCommander = function(program) {
 };
 
 Utils.COIN = {
-  bch: {
-    name: 'bch',
-    toSatoshis: 100000000,
-    maxDecimals: 8,
-    minDecimals: 8,
-  },
-  btc: {
-    name: 'btc',
-    toSatoshis: 100000000,
-    maxDecimals: 8,
-    minDecimals: 8,
-  },
-  bit: {
-    name: 'bit',
-    toSatoshis: 100,
-    maxDecimals: 2,
-    minDecimals: 2,
-  },
-  bch: {
-    name: 'bch',
-    toSatoshis: 100000000,
-    maxDecimals: 8,
-    minDecimals: 8,
-  },
- 
+  name: 'MANGA',
+  toSatoshis: 100000000,
+  maxDecimals: 8,
+  minDecimals: 8
 };
 
-Utils.renderAmount = function(satoshis, coin, opts) {
+Utils.renderAmount = function(satoshis, opts) {
   function clipDecimals(number, decimals) {
     var x = number.toString().split('.');
     var d = (x[1] || '0').substring(0, decimals);
@@ -309,8 +288,7 @@ Utils.renderAmount = function(satoshis, coin, opts) {
 
   opts = opts || {};
 
-  var coin = coin || 'btc';
-  var u = Utils.COIN[coin] || Utils.COIN.btc;
+  var u = Utils.COIN;
   var amount = clipDecimals((satoshis / u.toSatoshis), u.maxDecimals).toFixed(u.maxDecimals);
   return addSeparators(amount, opts.thousandsSeparator || ',', opts.decimalSeparator || '.', u.minDecimals) + ' ' + u.name;
 };
