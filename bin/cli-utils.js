@@ -235,7 +235,7 @@ Utils.parseAmount = function(text) {
   var amount = parseFloat(match[1]);
   if (!_.isNumber(amount) || _.isNaN(amount)) throw new Error('Invalid amount');
 
-  var unit = (match[3]).toLowerCase();
+  var unit = (match[3]);
   var rate = Utils.UNITS2[unit];
   if (!rate) throw new Error('Invalid unit')
 
