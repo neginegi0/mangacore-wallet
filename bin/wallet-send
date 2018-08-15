@@ -11,13 +11,13 @@ program = utils.configureCommander(program);
 program
   .option('--fee <fee-per-kb>', 'Fee per kB to use. Default 100bits.')
   .usage('[options] <address> <amount> [note]')
-  .description('Create a proposal for sending mangacoins to a destination address.\n  The amount can be specified in bit, btc or sat (the default).');
+  .description('Create a proposal for sending mangacoins to a destination address.\n  The amount can be specified in MANGA (the default).');
 
 program.on('--help', function() {
   console.log('  Examples:');
   console.log('');
-  console.log('    $ wallet-send n2HRFgtoihgAhx1qAEXcdBMjoMvAx7AcDc 500bit');
-  console.log('    $ wallet-send mgWeRvUC6d1LRPKtdDbvYEpaUEmApS4XrY 0.2btc "dinner with friends"');
+  console.log('    $ wallet-send n2HRFgtoihgAhx1qAEXcdBMjoMvAx7AcDc 500MANGA');
+  console.log('    $ wallet-send mgWeRvUC6d1LRPKtdDbvYEpaUEmApS4XrY 0.2MANGA "dinner with friends"');
   console.log('    $ wallet-send https://paypro.url/1234 # will ask for confirmation ');
   console.log('');
 });

@@ -220,9 +220,7 @@ Utils.findOneTxProposal = function(txps, id) {
 };
 
 Utils.UNITS2 = {
-  'btc': 100000000,
-  'bit': 100,
-  'sat': 1,
+  'MANGA': 100000000
 };
 
 Utils.parseAmount = function(text) {
@@ -237,7 +235,7 @@ Utils.parseAmount = function(text) {
   var amount = parseFloat(match[1]);
   if (!_.isNumber(amount) || _.isNaN(amount)) throw new Error('Invalid amount');
 
-  var unit = (match[3] || 'sat').toLowerCase();
+  var unit = (match[3]).toLowerCase();
   var rate = Utils.UNITS2[unit];
   if (!rate) throw new Error('Invalid unit')
 
