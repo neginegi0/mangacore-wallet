@@ -20,7 +20,7 @@
     "async": "^2.5.0",
     "mangacore-wallet-client": "https://github.com/neginegi0/mangacore-wallet-client/archive/master.tar.gz",
     "commander": "^2.6.0",
-    "lodash": "^3.3.1",
+    "lodash": "=4.17.4",
     "moment": "^2.9.0",
     "npmlog": "^1.2.0",
     "qr-image": "^3.1.0",
